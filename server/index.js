@@ -25,6 +25,21 @@ io.on("connection", (socket) => {
         console.log(`Mensagem recebida: ${data.username}: ${data.message}`);
         io.emit("chat_message", data);
     });
+
+    socket.on("new_todo", (data) => {
+        console.log(`Novo ToDo: ${data.username}: ${data.message}`);
+        io.emit("new_todo", data);
+    });
+
+    socket.on("new_doing", (data) => {
+        console.log(`Novo doing: ${data.username}: ${data.message}`);
+        io.emit("new_doing", data);
+    });
+
+    socket.on("new_done", (data) => {
+        console.log(`Novo doing: ${data.username}: ${data.message}`);
+        io.emit("new_done", data);
+    });
 });
 
 server.listen(3001, () => {

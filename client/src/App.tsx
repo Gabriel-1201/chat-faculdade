@@ -21,7 +21,7 @@ export default function App() {
 
     socket.on('new_todo', (data) => {
       console.log("Novo toDo:", data);
-      setChatDoing((prev: any) => [...prev, data]);
+      setChatToDo((prev: any) => [...prev, data]);
     });
     socket.on('new_doing', (data) => {
       console.log("Novo Doing:", data);
