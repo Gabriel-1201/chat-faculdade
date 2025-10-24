@@ -6,9 +6,9 @@ export default function App() {
   const [message, setMessage] = useState<string>();
   const [chat, setChat] = useState<any>([]);
 
-  const [kb_toDo, setToDo] = useState<any>([]);
-  const [kb_doing, setDoing] = useState<any>([]);
-  const [kb_done, setDone] = useState<any>([]);
+  const [kb_toDo, setToDo] = useState<String>();
+  const [kb_doing, setDoing] = useState<String>();
+  const [kb_done, setDone] = useState<String>();
 
   const [chat_toDo, chatToDo] = useState<any>([]);
   const [chat_doing, chatDoing] = useState<any>([]);
@@ -68,7 +68,7 @@ export default function App() {
                 className="border p-1 rounded w-50" 
                 type="text" 
                 placeholder="Novo ToDo"
-                value={message}
+                value={kb_toDo}
                 onChange={(e) => setMessage(e.target.value)}
               />
               <button 
@@ -93,7 +93,7 @@ export default function App() {
                 className="border p-1 rounded w-50" 
                 type="text" 
                 placeholder="Novo Doing"
-                value={message}
+                value={kb_doing}
                 onChange={(e) => setMessage(e.target.value)}
               />
               <button 
@@ -118,7 +118,7 @@ export default function App() {
                 className="border p-1 rounded w-50" 
                 type="text" 
                 placeholder="Novo Done"
-                value={message}
+                value={kb_done}
                 onChange={(e) => setMessage(e.target.value)}
               />
               <button 
