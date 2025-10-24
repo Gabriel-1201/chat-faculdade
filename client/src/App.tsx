@@ -6,9 +6,9 @@ export default function App() {
   const [message, setMessage] = useState<string>();
   const [chat, setChat] = useState<any>([]);
 
-  const [kb_toDo, setToDo] = useState<String>();
-  const [kb_doing, setDoing] = useState<String>();
-  const [kb_done, setDone] = useState<String>();
+  const [kb_toDo, setToDo] = useState<string>();
+  const [kb_doing, setDoing] = useState<string>();
+  const [kb_done, setDone] = useState<string>();
 
   const [chat_toDo, chatToDo] = useState<any>([]);
   const [chat_doing, chatDoing] = useState<any>([]);
