@@ -10,9 +10,9 @@ export default function App() {
   const [kb_doing, setDoing] = useState<string>();
   const [kb_done, setDone] = useState<string>();
 
-  const [chat_toDo, chatToDo] = useState<any>([]);
-  const [chat_doing, chatDoing] = useState<any>([]);
-  const [chat_done, chatDone] = useState<any>([]);
+  const [chat_toDo, setChatToDo] = useState<any>([]);
+  const [chat_doing, setChatDoing] = useState<any>([]);
+  const [chat_done, setChatDone] = useState<any>([]);
 
   useEffect(() => {
     socket.on('connect', () => {
@@ -73,7 +73,7 @@ export default function App() {
                   type='text'
                   placeholder='Novo ToDo'
                   value={kb_toDo}
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) => setToDo(e.target.value)}
                 />
                 <button
                   className='border border-sky-800 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-400 trasition-all duration-300 cursor-pointer'
@@ -102,7 +102,7 @@ export default function App() {
                   type='text'
                   placeholder='Novo Doing'
                   value={kb_doing}
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) => setDoing(e.target.value)}
                 />
                 <button
                   className='border border-sky-800 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-400 trasition-all duration-300 cursor-pointer'
@@ -131,7 +131,7 @@ export default function App() {
                   type='text'
                   placeholder='Novo Done'
                   value={kb_done}
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) => setDone(e.target.value)}
                 />
                 <button
                   className='border border-sky-800 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-400 trasition-all duration-300 cursor-pointer'
