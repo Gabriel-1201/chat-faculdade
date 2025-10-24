@@ -74,9 +74,7 @@ export default function App() {
             <div className='border h-[300px] w-[300px] overflow-y-auto p-4 mt-2 bg-gray-100'>
               {chat_toDo.map((msg: any, i: number) => (
                 <p key={i}>
-                  <strong>
-                    {msg.username}: {msg.message}
-                  </strong>
+                  <strong>{msg.kb_toDo}</strong>
                 </p>
               ))}
             </div>
@@ -103,9 +101,7 @@ export default function App() {
             <div className='border h-[300px] w-[300px] overflow-y-auto p-4 mt-2 bg-gray-100'>
               {chat_doing.map((msg: any, i: number) => (
                 <p key={i}>
-                  <strong>
-                    {msg.username}: {msg.message}
-                  </strong>
+                  <strong>{msg.kb_doing}</strong>
                 </p>
               ))}
             </div>
@@ -132,9 +128,7 @@ export default function App() {
             <div className='border h-[300px] w-[300px] overflow-y-auto p-4 mt-2 bg-gray-100'>
               {chat_done.map((msg: any, i: number) => (
                 <p key={i}>
-                  <strong>
-                    {msg.username}: {msg.message}
-                  </strong>
+                  <strong>{msg.kb_done}</strong>
                 </p>
               ))}
             </div>
