@@ -20,15 +20,15 @@ export default function App() {
     });
 
     socket.on('new_todo', (data) => {
-      console.log(data);
+      console.log("Novo toDo:", data);
       setChatDoing((prev: any) => [...prev, data]);
     });
     socket.on('new_doing', (data) => {
-      console.log(data);
+      console.log("Novo Doing:", data);
       setChatDoing((prev: any) => [...prev, data]);
     });
     socket.on('new_done', (data) => {
-      console.log(data);
+      console.log("Novo Done:", data);
       setChatDone((prev: any) => [...prev, data]);
     });
 
@@ -42,6 +42,7 @@ export default function App() {
   const sendTodo = (e: any) => {
     e.preventDefault();
     if (!kb_toDo) return;
+    console.log("Enviando ToDo:", kb_toDo);
     socket.emit('new_todo', { kb_toDo });
     setToDo('');
   };
@@ -49,6 +50,7 @@ export default function App() {
   const sendDoing = (e: any) => {
     e.preventDefault();
     if (!kb_doing) return;
+    console.log("Enviando Doing:", kb_doing);
     socket.emit('new_doing', { kb_doing });
     setDoing('');
   };
@@ -56,6 +58,7 @@ export default function App() {
   const sendDone = (e: any) => {
     e.preventDefault();
     if (!kb_done) return;
+    console.log("Enviando Done:", kb_done);
     socket.emit('new_done', { kb_done });
     setDone('');
   };
