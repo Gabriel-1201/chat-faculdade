@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { socket } from './socket';
 
 export default function App() {
-  const [username, setUsername] = useState<string>();
-  const [message, setMessage] = useState<string>();
-  const [chat, setChat] = useState<any>([]);
+  // const [username, setUsername] = useState<string>();
+  // const [message, setMessage] = useState<string>();
+  // const [chat, setChat] = useState<any>([]);
 
   const [kb_toDo, setToDo] = useState<string>();
   const [kb_doing, setDoing] = useState<string>();
@@ -18,13 +18,24 @@ export default function App() {
     socket.on('connect', () => {
       console.log('Conectado ao servidor');
     });
-    socket.on('chat_message', (data) => {
+
+    socket.on('new_todo', (data) => {
       console.log(data);
-      setChat((prev: any) => [...prev, data]);
+      setChatDoing((prev: any) => [...prev, data]);
+    });
+    socket.on('new_doing', (data) => {
+      console.log(data);
+      setChatDoing((prev: any) => [...prev, data]);
+    });
+    socket.on('new_done', (data) => {
+      console.log(data);
+      setChatDone((prev: any) => [...prev, data]);
     });
 
     return () => {
-      socket.off('chat_message');
+      socket.off('new_todo');
+      socket.off('new_doing');
+      socket.off('new_done');
     };
   }, []);
 
@@ -32,21 +43,21 @@ export default function App() {
     e.preventDefault();
     if (!kb_toDo) return;
     socket.emit('new_todo', { kb_toDo });
-    setMessage('');
+    setToDo('');
   };
 
   const sendDoing = (e: any) => {
     e.preventDefault();
     if (!kb_doing) return;
     socket.emit('new_doing', { kb_doing });
-    setMessage('');
+    setDoing('');
   };
 
   const sendDone = (e: any) => {
     e.preventDefault();
     if (!kb_done) return;
     socket.emit('new_done', { kb_done });
-    setMessage('');
+    setDone('');
   };
 
   return (
